@@ -83,21 +83,21 @@ classDiagram
     class PanelListarCitas
     class PanelHistorialClinico
     Persona <|-- Cliente
-    Cliente o-- Mascota : tiene
-    Cita ..> Mascota : referencia
-    Cita ..> Cliente : referencia
-    Mascota --> Sexo
-    Veterinaria --> Cliente : gestiona
-    Veterinaria --> Mascota : gestiona
-    Veterinaria --> Cita : gestiona
-    PersistenciaArchivo ..> Veterinaria : persiste
-    VentanaPrincipal --> PanelRegistroCliente
-    VentanaPrincipal --> PanelRegistroMascota
-    VentanaPrincipal --> PanelAgendarCita
-    VentanaPrincipal --> PanelListarCitas
-    VentanaPrincipal --> PanelHistorialClinico
-    PanelRegistroCliente ..> Veterinaria
-    PanelRegistroMascota ..> Veterinaria
-    PanelAgendarCita ..> Veterinaria
-    PanelListarCitas ..> Veterinaria
-    PanelHistorialClinico ..> Veterinaria
+    Cliente "1" o-- "0..*" Mascota : tiene
+    Cita "*" ..> "1" Mascota : referencia
+    Cita "*" ..> "1" Cliente : referencia
+    Mascota "*" --> "1" Sexo : usa
+    Veterinaria "1" --> "*" Cliente : gestiona
+    Veterinaria "1" --> "*" Mascota : gestiona
+    Veterinaria "1" --> "*" Cita : gestiona
+    PersistenciaArchivo "1" ..> "1" Veterinaria : persiste
+    VentanaPrincipal "1" --> "1" PanelRegistroCliente
+    VentanaPrincipal "1" --> "1" PanelRegistroMascota
+    VentanaPrincipal "1" --> "1" PanelAgendarCita
+    VentanaPrincipal "1" --> "1" PanelListarCitas
+    VentanaPrincipal "1" --> "1" PanelHistorialClinico
+    PanelRegistroCliente "*" ..> "1" Veterinaria
+    PanelRegistroMascota "*" ..> "1" Veterinaria
+    PanelAgendarCita "*" ..> "1" Veterinaria
+    PanelListarCitas "*" ..> "1" Veterinaria
+    PanelHistorialClinico "*" ..> "1" Veterinaria
