@@ -1,0 +1,103 @@
+classDiagram
+    class Persona {
+        <<Abstract>>
+        -int id
+        -String nombre
+        -String telefono
+        -String email
+        +getId() int
+        +setId(int) void
+        +getNombre() String
+        +setNombre(String) void
+        +getTelefono() String
+        +setTelefono(String) void
+        +getEmail() String
+        +setEmail(String) void
+    }
+    class Cliente {
+        -String direccion
+        -List~Integer~ idsMascotas
+        +getDireccion() String
+        +setDireccion(String) void
+        +getIdsMascotas() List
+        +agregarMascota(int) void
+        +toString() String
+    }
+    class Mascota {
+        -int id
+        -String nombre
+        -String especie
+        -String raza
+        -int edad
+        -Sexo sexo
+        -int idDueno
+    }
+    class Sexo {
+        <<Enumeration>>
+        MACHO
+        HEMBRA
+    }
+    class Cita {
+        -int id
+        -int idMascota
+        -String fecha
+        -String hora
+        -String motivo
+        -String diagnostico
+        -String estado
+        +ESTADO_PROGRAMADA String
+        +ESTADO_COMPLETADA String
+        +ESTADO_CANCELADA String
+    }
+    class Veterinaria {
+        -List~Cliente~ clientes
+        -List~Mascota~ mascotas
+        -List~Cita~ citas
+        -Map~Integer~Cliente~ mapaClientes
+        -Map~Integer~Mascota~ mapaMascotas
+        -Map~Integer~Cita~ mapaCitas
+        +getInstancia() Veterinaria
+        +agregarCliente(Cliente) void
+        +buscarCliente(int) Cliente
+        +getClientes() List
+        +agregarMascota(Mascota) void
+        +buscarMascota(int) Mascota
+        +getMascotas() List
+        +agregarCita(Cita) void
+        +buscarCita(int) Cita
+        +getCitas() List
+        +actualizarDiagnostico(int~String~) boolean
+        +cancelarCita(int) boolean
+    }
+    class PersistenciaArchivo {
+        +guardarDatos() void
+        +cargarDatos() void
+    }
+    class VentanaPrincipal {
+        -JTabbedPane tabs
+        +VentanaPrincipal()
+    }
+    class PanelRegistroCliente
+    class PanelRegistroMascota
+    class PanelAgendarCita
+    class PanelListarCitas
+    class PanelHistorialClinico
+    Persona <|-- Cliente
+    Cliente o-- Mascota : tiene
+    Cita ..> Mascota : referencia
+    Cita ..> Cliente : referencia
+    Mascota --> Sexo
+    Veterinaria --> Cliente : gestiona
+    Veterinaria --> Mascota : gestiona
+    Veterinaria --> Cita : gestiona
+    PersistenciaArchivo ..> Veterinaria : persiste
+    VentanaPrincipal --> PanelRegistroCliente
+    VentanaPrincipal --> PanelRegistroMascota
+    VentanaPrincipal --> PanelAgendarCita
+    VentanaPrincipal --> PanelListarCitas
+    VentanaPrincipal --> PanelHistorialClinico
+    PanelRegistroCliente ..> Veterinaria
+    PanelRegistroMascota ..> Veterinaria
+    PanelAgendarCita ..> Veterinaria
+    PanelListarCitas ..> Veterinaria
+    PanelHistorialClinico ..> Veterinaria

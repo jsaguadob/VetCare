@@ -1,0 +1,12 @@
+graph TD
+    Actor[Veterinario/Recepcionista] -->|Registrar Cliente| UC1[Registrar Cliente]
+    Actor -->|Registrar Mascota| UC2[Registrar Mascota]
+    Actor -->|Agendar Cita| UC3[Agendar Cita]
+    Actor -->|Completar Cita| UC4[Completar Cita con Diagnostico]
+    Actor -->|Cancelar Cita| UC5[Cancelar Cita]
+    Actor -->|Listar Citas| UC6[Listar y Filtrar Citas]
+    Actor -->|Consultar Historial| UC7[Consultar Historial Clinico]
+    Actor -->|Gestionar Datos| UC8[Persistencia en Archivos]
+    UC3 -.->|incluye| UC2
+    UC4 -.->|incluye| UC3
+    UC7 -.->|incluye| UC2
