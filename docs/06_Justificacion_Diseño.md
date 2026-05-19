@@ -4,8 +4,7 @@
 
 | Decisión | Justificación |
 |---|---|
-| Java en lugar de .NET o Python | Java es multiplataforma, tiene un ecosistema maduro para aplicaciones de escritorio y no requiere licencias. Además, su sistema de tipos estático y orientación a objetos facilitan el modelado del dominio veterinario (Cliente, Mascota, Cita). |
-| Swing en lugar de JavaFX | Swing es parte de la JDK estándar (Java SE) y está disponible sin dependencias externas. JavaFX se separó del JDK a partir de Java 11, lo que obligaría a incluir librerías adicionales. Swing, aunque más antiguo, es suficiente para una aplicación con formularios, tablas y paneles. Es la opción más portable para un entorno académico. |
+| Swing en lugar de JavaFX | El proyecto requiere Java Swing como tecnología de interfaz gráfica. Swing es parte de la JDK estándar (Java SE) y está disponible sin dependencias externas. JavaFX se separó del JDK a partir de Java 11, lo que obligaría a incluir librerías adicionales. Swing es suficiente para una aplicación con formularios, tablas y paneles. |
 | NetBeans Ant en lugar de Maven/Gradle | NetBeans es el IDE institucional y su formato nativo es Ant. No se requieren dependencias externas, por lo que la complejidad de Maven/Gradle no aporta beneficios. |
 
 ## 2. Look & Feel: Nimbus
