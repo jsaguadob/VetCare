@@ -1,0 +1,29 @@
+# Java
+*.class
+*.jar
+*.war
+*.nar
+*.ear
+*.log
+*.ctxt
+
+# NetBeans
+nbproject/private/
+build/
+nbbuild/
+dist/
+nbdist/
+.nb-gradle/
+
+# OS
+.DS_Store
+Thumbs.db
+nul
+
+# Data (runtime generated files)
+data/*.csv
+
+# IDE
+.vscode/
+.idea/
+*.iml

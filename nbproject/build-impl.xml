@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="VetCare-impl" default="default" basedir="..">
+    <description>Implementacion de build para VetCare.</description>
+
+    <target name="default" depends="compile"/>
+    <target name="init">
+        <mkdir dir="build/classes"/>
+        <mkdir dir="build/empty"/>
+        <mkdir dir="dist"/>
+        <mkdir dir="data"/>
+    </target>
+
+    <target name="compile" depends="init">
+        <javac srcdir="src" destdir="build/classes" includeantruntime="false" encoding="UTF-8"/>
+        <copy todir="build/classes" failonerror="false" quiet="true">
+            <fileset dir="src" excludes="**/*.java"/>
+        </copy>
+    </target>
+
+    <target name="run" depends="compile">
+        <java classname="vetcare.VetCareApp" classpath="build/classes" fork="true" failonerror="true"/>
+    </target>
+
+    <target name="jar" depends="compile">
+        <jar destfile="dist/VetCare.jar" basedir="build/classes">
+            <manifest>
+                <attribute name="Main-Class" value="vetcare.VetCareApp"/>
+            </manifest>
+        </jar>
+    </target>
+
+    <target name="clean">
+        <delete dir="build"/>
+        <delete dir="dist"/>
+    </target>
+</project>
